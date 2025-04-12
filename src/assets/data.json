@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Mountain Bike X200",
+    "brand": "Brand A",
+    "model": "2023",
+    "price": 1200,
+    "category": "Mountain",
+    "availability": "In Stock",
+    "image": "https://example.com/images/mountain-bike-x200.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Roadster 5000",
+    "brand": "Brand B",
+    "model": "2022",
+    "price": 950,
+    "category": "Road",
+    "availability": "Out of Stock",
+    "image": "https://example.com/images/roadster-5000.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Electric Glide E100",
+    "brand": "Brand C",
+    "model": "2023",
+    "price": 2500,
+    "category": "Electric",
+    "availability": "In Stock",
+    "image": "https://example.com/images/electric-glide-e100.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Hybrid Flex Pro",
+    "brand": "Brand A",
+    "model": "2021",
+    "price": 1100,
+    "category": "Hybrid",
+    "availability": "In Stock",
+    "image": "https://example.com/images/hybrid-flex-pro.jpg"
+  }
+]
