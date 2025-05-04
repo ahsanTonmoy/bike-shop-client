@@ -99,19 +99,19 @@ const CartPage = () => {
 
         {/* Right Side: Price Summary (Fixed Sidebar) */}
         <div className="lg:col-span-3 relative">
-          <div className="bg-white rounded-lg shadow-md p-6 sticky top-32">
+          <div className="bg-white rounded-lg shadow-md grid gap-2 p-4 sticky">
             <h2 className="text-xl font-bold mb-4">Summary</h2>
             <div className="flex justify-between mb-2">
-              <span className="text-xl">Total Product:</span>
-              <span className="text-2xl">{cartData?.totalQuantity}</span>
+              <span className="text-base">Total Product:</span>
+              <span className="text-base">{cartData?.totalQuantity}</span>
             </div>
             {/* <div className="flex justify-between mb-2">
             <span>Tax (10%):</span>
             <span>${(totalPrice * 0.1).toFixed(2)}</span>
           </div> */}
-            <div className="flex justify-between font-bold text-lg mb-4">
-              <span className="text-xl">Total Price:</span>
-              <span className="text-2xl">BDT.{cartData?.totalPrice}</span>
+            <div className="flex justify-between font-bold text-base mb-4">
+              <span className="text-base">Total Price:</span>
+              <span className="text-base px-2">BDT.{cartData?.totalPrice}</span>
             </div>
             {cartData?.items.length > 0 && (
               <Button

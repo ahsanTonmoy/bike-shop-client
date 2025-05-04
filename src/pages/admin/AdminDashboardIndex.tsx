@@ -27,13 +27,13 @@ const AdminDashboardIndex = () => {
       {/* title */}
       <div className="">
         <Helmet>
-          <title>DeshBoard - Bike Shop || Online Delivary</title>
+          <title>DashBoard - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
       <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
 
       {/* dashboard Status */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 !text-base">
         {productLoading || orderLoading || revenueLoading || userLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <Skeleton key={index} className="h-32 w-full rounded-lg" />
@@ -58,7 +58,7 @@ const AdminDashboardIndex = () => {
             <StatsCard
               icon={<FaDollarSign />}
               title="Total Revenue"
-              value={`tk ${revenueData?.data?.totalRevenue || 0}`}
+              value={`BDT ${revenueData?.data?.totalRevenue || 0}`}
             />
           </>
         )}

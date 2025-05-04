@@ -77,7 +77,7 @@ const DashboardSidebar = () => {
         <li key={item.name}>
           <Link
             to={item.path as string}
-            className={` p-2 rounded-md flex gap-2 items-center text-lg py-2 ${
+            className={` p-2 rounded-md flex gap-2 items-center text-base py-2 ${
               isActive(item.path as string)
                 ? "bg-white text-black"
                 : "hover:bg-white hover:text-black"

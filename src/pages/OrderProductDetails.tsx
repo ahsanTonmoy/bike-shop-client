@@ -69,11 +69,11 @@ export function OrderProductDetails({
                   </TableCell>
                   <TableCell>{item?.product?.name}</TableCell>
                   <TableCell>{item?.product?.brand}</TableCell>
-                  <TableCell>tk {item?.product?.price}</TableCell>
+                  <TableCell>BDT {item?.product?.price}</TableCell>
                   <TableCell>{item?.quantity}</TableCell>
                   <TableCell>
                     {" "}
-                    tk {item?.quantity * item?.product?.price}
+                    BDT {item?.quantity * item?.product?.price}
                   </TableCell>
                   <TableCell>
                     {item?.product?.inStock ? (

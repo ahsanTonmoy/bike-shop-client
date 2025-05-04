@@ -60,7 +60,7 @@ const Navbar = () => {
   const CartIcon = (
     <Link
       to="/cart"
-      className="relative p-2 transition-all duration-300 hover:scale-105"
+      className="relative p-2 transition-all duration-300 hover:scale-105 text-lg"
     >
       <BiCartAdd className={header ? "w-8 h-8 text-white" : "text-black"} />
 
@@ -77,8 +77,8 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-sm py-6 bgDark text-white w-full"
-            : " shadow-sm bg-white py-4"
+            ? " fixed top-0 z-50 shadow-sm py-4 bgDark text-white w-full px-4 lg:px-20"
+            : " shadow-sm bg-white py-4 px-4 lg:px-20"
         }
       >
         <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
@@ -87,7 +87,7 @@ const Navbar = () => {
             <Link to={"/"}>
               <div className="text-3xl font-bold text-white capitalize ">
                 <img
-                  className="w-56  rounded-sm"
+                  className={header ? " h-12" : "w-56 rounded-sm"}
                   src={brand}
                   alt="bike shop brand"
                 />
@@ -97,7 +97,7 @@ const Navbar = () => {
 
           {/* Middle - Navigation Links */}
           <nav className="items-center hidden gap-6 lg:flex">
-            <ul className="flex gap-6 font-bold text-xl">
+            <ul className="flex gap-6 font-bold text-base">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
                   <Link to={item.link}>
@@ -116,7 +116,7 @@ const Navbar = () => {
           </nav>
 
           {/* Right Side - Cart & Login/Profile */}
-          <div className="items-center hidden gap-10 lg:flex">
+          <div className="items-center hidden gap-6 lg:flex">
             {/* Cart */}
             {CartIcon}
             {/* Profile/Login Button with dianamic add user data form data base*/}
@@ -136,7 +136,7 @@ const Navbar = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-5 ">
                     {/* Cart */}
                     {CartIcon}
 
@@ -154,7 +154,14 @@ const Navbar = () => {
                       </Link>
                     )}
                   </div>
-                  <Button variant="outline" size="icon">
+                  <Button
+                    className={
+                      header
+                        ? "hover:bg-white hover:text-black text-white text-xl"
+                        : "bg-transparent text-black hover:text-white  text-xl"
+                    }
+                    size="icon"
+                  >
                     <Menu className="size-4" />
                   </Button>
                 </div>

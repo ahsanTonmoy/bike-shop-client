@@ -136,7 +136,7 @@ const AddProduct = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="w-full max-w-md mx-auto space-y-4"
+            className="w-full max-w-md mx-auto "
           >
             {/* Name */}
             <CustomInputField

@@ -35,7 +35,7 @@ const OrderHistoryGraph = () => {
       </div>
       {/* data table */}
       <div className=" ">
-        <table className="w-full text-sm text-left text-gray-500 rtl:text-right ">
+        <table className="w-fit text-sm text-left text-gray-500 rtl:text-right ">
           <thead className="text-xs uppercase text-gray-50 bg-black ">
             <tr>
               <th scope="col" className="px-6 py-3">

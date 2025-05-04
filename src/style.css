@@ -2,3 +2,11 @@
 .bgDark {
   background-color: #191919;
 }
+
+.main-content > div > {
+  padding: 0 5rem;
+}
+
+.card:hover .view-btn {
+  display: block;
+}

@@ -5,14 +5,14 @@ import Footer from "../shared/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       {/* navigetions area */}
       <div className="">
         <Navber />
       </div>
       {/* Main content area*/}
-      <div className="flex-grow md:py-6">
+      <div className="flex-grow xl:px-20">
         <Outlet />
       </div>
       {/* footer area */}
