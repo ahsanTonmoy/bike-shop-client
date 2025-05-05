@@ -56,7 +56,7 @@ const Navbar = () => {
       to="/cart"
       className="relative p-2 transition-all duration-300 hover:scale-105 text-lg"
     >
-      <BiCartAdd className={header ? "w-8 h-8 text-white" : "text-black"} />
+      <BiCartAdd className={header ? "w-8 h-8 " : "text-black"} />
 
       <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
         {cartData?.items?.length}
@@ -71,7 +71,7 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-sm py-4 bg-slate-200 text-white w-full px-4 lg:px-20"
+            ? " fixed top-0 z-50 shadow-sm py-4 bg-white text-black w-full px-4 lg:px-20"
             : " shadow-sm bg-white py-4 px-4 lg:px-20"
         }
       >
@@ -90,13 +90,13 @@ const Navbar = () => {
           </div>
 
           {/* Middle - Navigation Links */}
-          <nav className="w-full flex flex-col justify-center gap-6 px-6">
+          <nav className="w-full md:w-2/4 flex flex-col justify-center gap-2 text-center py-2">
             {/* top */}
-            <div className="">
+            <div className={header ? "hidden" : ""}>
               <Filter />
             </div>
             {/* bottom */}
-            <ul className="flex gap-6 py-3 font-bold text-base">
+            <ul className="flex gap-6 py-3 font-bold text-base justify-center">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
                   <Link to={item.link}>
