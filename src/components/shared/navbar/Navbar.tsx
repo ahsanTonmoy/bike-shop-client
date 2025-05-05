@@ -25,6 +25,7 @@ import { verifyToken } from "@/utils/verifyToken";
 import { useEffect, useState } from "react";
 import { menuList } from "@/utils/menu";
 import Filter from "@/components/filter/Filter";
+import { useNavigate } from "react-router-dom";
 
 //
 const Navbar = () => {
@@ -41,6 +42,14 @@ const Navbar = () => {
       setHeader(false);
     }
   };
+  //
+  const navigate = useNavigate();
+  const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/bikes?category=${category}`);
+  };
+  //
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHeader);
@@ -96,22 +105,60 @@ const Navbar = () => {
               <Filter />
             </div>
             {/* bottom */}
-            <ul className="flex gap-6 py-3 font-bold text-base justify-center">
-              {menuList.map((item) => (
-                <li className="relative group" key={item.id}>
-                  <Link to={item.link}>
-                    <span
-                      className={`cursor-pointer hover:text-[#FF0000] transition-all duration-300 ${
-                        item.link === location.pathname ? "text-[#FF0000]" : ""
-                      }`}
-                    >
-                      {item.name}
-                    </span>
-                  </Link>
-                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FF0000] transition-all duration-300 group-hover:w-full"></span>
-                </li>
-              ))}
-            </ul>
+            <div className="">
+              <ul className="flex flex-wrap gap-8 py-4 font-semibold text-base justify-center relative">
+                {menuList.map((item) => (
+                  <li
+                    key={item.id}
+                    onMouseEnter={() => setHoveredMenu(item.id)}
+                    onMouseLeave={() => setHoveredMenu(null)}
+                    className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
+                      item.link === location.pathname
+                        ? "text-[#FF0000]"
+                        : "text-black"
+                    } hover:text-[#FF0000]`}
+                  >
+                    <Link to={item.link}>
+                      <span
+                        className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
+                          item.link === location.pathname
+                            ? "text-[#FF0000]"
+                            : "text-black"
+                        } hover:text-[#FF0000]`}
+                      >
+                        {item.name}
+                        {/* Underline animation */}
+                        <span
+                          className={`absolute left-0 bottom-0 w-full h-[2px] bg-[#FF0000] transition-all duration-300 scale-x-0 group-hover:scale-x-100 origin-left ${
+                            item.link === location.pathname ? "scale-x-100" : ""
+                          }`}
+                        ></span>
+                      </span>
+                    </Link>
+
+                    {item.children && hoveredMenu === item.id && (
+                      <div className="absolute left-0 top-7 z-50 py-3 transition decoration-slate-500 ease-in">
+                        <ul className=" grid grid-cols-2 gap-4 group-hover:flex bg-white  border rounded-md p-6 w-96 text-left">
+                          {item.children.map((child, index) => (
+                            <li key={index}>
+                              <button
+                                onClick={() =>
+                                  handleCategoryClick(child.category)
+                                }
+                                className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                              >
+                                {child.name}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/*  */}
           </nav>
 
           {/* Right Side - Cart & Login/Profile */}
