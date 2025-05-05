@@ -1,4 +1,3 @@
-import React from "react";
 import { BsPhoneFill } from "react-icons/bs";
 import { SiFacebook } from "react-icons/si";
 import { FaWhatsapp } from "react-icons/fa";
