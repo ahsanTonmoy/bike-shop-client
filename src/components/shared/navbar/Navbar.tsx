@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
 
           {/* Middle - Navigation Links */}
-          <nav className="w-full md:w-2/4 flex flex-col justify-center gap-2 text-center py-2">
+          <nav className="w-full md:w-2/4 md:flex flex-col justify-center gap-2 text-center py-2 hidden">
             {/* top */}
             <div className={header ? "hidden" : ""}>
               <Filter />
