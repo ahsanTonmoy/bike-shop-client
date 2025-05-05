@@ -23,14 +23,8 @@ import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { verifyToken } from "@/utils/verifyToken";
 import { useEffect, useState } from "react";
-
-const menuList = [
-  { id: 1, name: "HOME", link: "/" },
-  { id: 2, name: "All PRODUCTS", link: "/bikes" },
-  { id: 3, name: "SERVICES", link: "/service" },
-  { id: 4, name: "ABOUT", link: "/about" },
-  { id: 5, name: "CONTACT", link: "/contact" },
-];
+import { menuList } from "@/utils/menu";
+import Filter from "@/components/filter/Filter";
 
 //
 const Navbar = () => {
@@ -77,11 +71,11 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-sm py-4 bgDark text-white w-full px-4 lg:px-20"
+            ? " fixed top-0 z-50 shadow-sm py-4 bg-slate-200 text-white w-full px-4 lg:px-20"
             : " shadow-sm bg-white py-4 px-4 lg:px-20"
         }
       >
-        <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
+        <div className="container flex gap-8 items-center justify-between px-4 mx-auto lg:px-0">
           {/* Left Side - Logo */}
           <div className="flex items-center">
             <Link to={"/"}>
@@ -96,8 +90,13 @@ const Navbar = () => {
           </div>
 
           {/* Middle - Navigation Links */}
-          <nav className="items-center hidden gap-6 lg:flex">
-            <ul className="flex gap-6 font-bold text-base">
+          <nav className="w-full flex flex-col justify-center gap-6 px-6">
+            {/* top */}
+            <div className="">
+              <Filter />
+            </div>
+            {/* bottom */}
+            <ul className="flex gap-6 py-3 font-bold text-base">
               {menuList.map((item) => (
                 <li className="relative group" key={item.id}>
                   <Link to={item.link}>
