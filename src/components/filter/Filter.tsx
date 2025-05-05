@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoSearchSharp } from "react-icons/io5";
 
 const Filter = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,21 +16,20 @@ const Filter = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center gap-2">
-      <input
-        type="text"
-        placeholder="Search by name, model, or brand"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="px-3 py-2 border rounded w-full"
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-      >
-        Search
-      </button>
-    </form>
+    <div className=" border-2 border-[#FF541F] rounded-full px-4 py-3">
+      <form onSubmit={handleSearch} className="flex items-center gap-2">
+        <input
+          type="text"
+          placeholder="Search by name, model, or brand"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className=" w-full"
+        />
+        <button type="submit" className="text-xl">
+          <IoSearchSharp />
+        </button>
+      </form>
+    </div>
   );
 };
 
