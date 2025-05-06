@@ -84,7 +84,7 @@ const Navbar = () => {
         className={
           header
             ? " fixed top-0 z-50 shadow-md py-2 bg-white w-full px-4 lg:px-20"
-            : " shadow-sm bg-white text-blck pt-4 px-4 lg:px-20"
+            : " shadow-sm bg-white text-blck py-4 md:py-2 px-4 lg:px-20"
         }
       >
         <div className="container flex gap-8 items-center justify-between px-4 mx-auto lg:px-0">

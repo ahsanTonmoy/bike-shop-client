@@ -22,9 +22,9 @@ const CartPage = () => {
         </Helmet>
       </div>
       {/*  */}
-      <section className="container mx-auto min-h-[70vh] grid grid-cols-1 lg:grid-cols-12 gap-12 py-6 px-4 md:px-0">
+      <section className="container mx-auto min-h-[70vh] grid grid-cols-1 lg:grid-cols-12 gap-12 py-6 px-4 md:px-20">
         {/* Left Side: Product List */}
-        <div className="lg:col-span-9 rounded-lg shadow-md p-6">
+        <div className="lg:col-span-9  p-6">
           <h2 className="text-xl font-bold mb-4">MY CART</h2>
           {cartData?.items.length > 0 ? (
             cartData?.items?.map((item) => (
@@ -99,7 +99,7 @@ const CartPage = () => {
 
         {/* Right Side: Price Summary (Fixed Sidebar) */}
         <div className="lg:col-span-3 relative">
-          <div className="bg-white rounded-lg shadow-md grid gap-2 p-4 sticky">
+          <div className="bg-white  grid gap-2 p-4 sticky">
             <h2 className="text-xl font-bold mb-4">Summary</h2>
             <div className="flex justify-between mb-2">
               <span className="text-base">Total Product:</span>
