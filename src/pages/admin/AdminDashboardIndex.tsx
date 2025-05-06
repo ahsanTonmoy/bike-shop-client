@@ -33,7 +33,7 @@ const AdminDashboardIndex = () => {
       <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
 
       {/* dashboard Status */}
-      <div className="md:flex justify-center gap-4 !text-xs cursor-pointer">
+      <div className="md:flex db justify-center gap-4 !text-xs cursor-pointer">
         {productLoading || orderLoading || revenueLoading || userLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <Skeleton key={index} className="h-32 w-full rounded-lg" />

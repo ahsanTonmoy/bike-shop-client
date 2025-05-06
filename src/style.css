@@ -16,11 +16,12 @@
 .bg-card {
   margin: 8px;
 }
-.bg-card:hover {
+.db .bg-card:hover {
   background-color: #191919;
   color: #fff;
+  transition: 0.5s;
 }
-.bg-card > div {
+.db .bg-card > div {
   padding: 0 16px !important;
 }
 
