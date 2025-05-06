@@ -11,3 +11,23 @@
 .card:hover .view-btn {
   display: block;
 }
+
+/*  */
+.bg-card {
+  margin: 8px;
+}
+.bg-card:hover {
+  background-color: #191919;
+  color: #fff;
+}
+.bg-card > div {
+  padding: 0 16px !important;
+}
+
+.tracking-tight {
+  font-size: 16px;
+}
+
+.bg-card > p {
+  font-size: 18px !important;
+}
