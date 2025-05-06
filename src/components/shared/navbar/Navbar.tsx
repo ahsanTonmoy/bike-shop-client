@@ -47,7 +47,7 @@ const Navbar = () => {
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
 
   const handleCategoryClick = (category: string) => {
-    navigate(`/bikes?category=${category}`);
+    navigate(`bikes/categorys?query=${category}`);
   };
   //
 

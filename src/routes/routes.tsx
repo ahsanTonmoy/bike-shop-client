@@ -26,6 +26,7 @@ import Login from "../pages/Login";
 import Contact from "@/pages/Contact";
 import NotFoundPage from "../pages/NotFoundPage";
 import SearchResults from "@/components/filter/SearchResults";
+import Category from "@/pages/Category";
 
 export const router = createBrowserRouter([
   {
@@ -38,12 +39,16 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/search-results",
+        path: "/searchs-results",
         element: <SearchResults />,
       },
       {
         path: "/bikes",
         element: <AllProducts />,
+      },
+      {
+        path: "/bikes/categorys",
+        element: <Category />,
       },
       {
         path: "/details/:id",
