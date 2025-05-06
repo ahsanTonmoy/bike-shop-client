@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { BiCartAdd } from "react-icons/bi";
 
 import { Link, useLocation } from "react-router-dom";
 import { ProfileDropdown } from "./ProfileDropdown";
@@ -26,6 +25,8 @@ import { useEffect, useState } from "react";
 import { menuList } from "@/utils/menu";
 import Filter from "@/components/filter/Filter";
 import { useNavigate } from "react-router-dom";
+import { MdShoppingBag } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 
 //
 const Navbar = () => {
@@ -63,11 +64,13 @@ const Navbar = () => {
   const CartIcon = (
     <Link
       to="/cart"
-      className="relative p-2 transition-all duration-300 hover:scale-105 text-lg"
+      className="relative p-0 transition-all duration-300 hover:scale-105 text-lg"
     >
-      <BiCartAdd className={header ? "text-black" : "text-black"} />
+      <MdShoppingBag
+        className={header ? "text-black text-3xl" : "text-black text-3xl"}
+      />
 
-      <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
+      <span className="absolute px-1 py-0.5 text-xs text-white font-black rounded-full left-2 top-[10px]">
         {cartData?.items?.length}
       </span>
     </Link>
@@ -164,9 +167,9 @@ const Navbar = () => {
               <ProfileDropdown user={isUser as TUser} />
             ) : (
               <Link to="/login">
-                <Button className="h-10 text-lg font-medium text-black capitalize bg-white border-2 shadow-none hover:shadow-md hover:text-white">
-                  Log in
-                </Button>
+                <div className="text-xl mt-[1px]">
+                  <FaUser />
+                </div>
               </Link>
             )}
           </div>
