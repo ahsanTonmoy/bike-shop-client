@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
-import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
+import brand from "@/assets/images/logo/Bike_Shop_Logo_White.png";
+import { menuList } from "@/utils/menu";
+// import { Item } from "@radix-ui/react-dropdown-menu";
 export default function Footer() {
   return (
     <footer className="bg-stone-900 text-white py-6 px-4 md:px-20 font-semibold">
@@ -46,12 +48,48 @@ export default function Footer() {
 
           {/* Shop Section */}
           <div className="px-4">
-            <h3 className="text-xl font-semibold mb-4">Shop</h3>
-            <ul className="space-y-2 text-base text-gray-400">
-              <li className="hover:text-white">Mountain Bikes</li>
-              <li className="hover:text-white">Road Bikes</li>
-              <li className="hover:text-white">Electric Bikes</li>
-              <li className="hover:text-white">Accessories</li>
+            <ul className="space-y-1 uppercase text-xs text-white">
+              {menuList.map((item) => (
+                <li
+                  key={item.id}
+                  className={` relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
+                    item.link === location.pathname
+                      ? "text-[#FF0000]"
+                      : "text-white"
+                  } hover:text-[#FF0000]`}
+                >
+                  <Link to={item.link}>
+                    <span
+                      className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
+                        item.link === location.pathname
+                          ? "text-[#FF0000]"
+                          : "text-white"
+                      } hover:text-[#FF0000]`}
+                    >
+                      {item.name}
+                    </span>
+                  </Link>
+
+                  {/* {item.children === item.id && (
+                    <div className="absolute left-0 top-8 z-40 py-3 transition decoration-500 ease-in bg-white">
+                      <ul className=" grid grid-cols-2 gap-4 group-hover:flex bg-white p-6 w-96 text-left">
+                        {item.children.map((child, index) => (
+                          <li key={index}>
+                            <button
+                              onClick={() =>
+                                handleCategoryClick(child.category)
+                              }
+                              className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                            >
+                              {child.name}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )} */}
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -14,7 +14,7 @@ import {
 import { TUser } from "@/types/types";
 
 // brand fro logo
-import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
+import brand from "@/assets/images/logo/Bike_Shop_Logo.svg";
 //
 
 import { selectCurrentToken } from "@/redux/features/auth/authSlice";

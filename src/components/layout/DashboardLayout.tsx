@@ -5,7 +5,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useLogOutMutation } from "@/redux/features/auth/authApi";
 import { logout } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
-import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
+import brand from "@/assets/images/logo/Bike_Shop_Logo.svg";
 import { IoIosLogOut } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 export default function DashboardLayout() {
