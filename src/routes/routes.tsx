@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/searchs-results",
+        path: "/search-results",
         element: <SearchResults />,
       },
       {
