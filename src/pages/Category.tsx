@@ -7,6 +7,7 @@ import { TbListDetails } from "react-icons/tb";
 import { BiCart } from "react-icons/bi";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import Loading from "@/components/Loading";
 const Category = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -14,7 +15,7 @@ const Category = () => {
 
   const { data, isLoading } = useAllProductsQuery({ searchTerm });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="p-6 my-10 min-h-screen">

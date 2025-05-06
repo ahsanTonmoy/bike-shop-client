@@ -2,12 +2,12 @@ import { useLocation } from "react-router-dom";
 import { useAllProductsQuery } from "@/redux/features/products/productApi";
 // import { IBikeRespoimport { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import LoadingSkelton from "../shared/LoadingSkelton";
 import { TbListDetails } from "react-icons/tb";
 import { BiCart } from "react-icons/bi";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { Badge } from "@/components/ui/badge";
+import Loading from "../Loading";
 
 const SearchResults = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const SearchResults = () => {
 
   const { data, isLoading } = useAllProductsQuery({ searchTerm });
 
-  if (isLoading) return <LoadingSkelton />;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="p-6 my-10 h-screen">

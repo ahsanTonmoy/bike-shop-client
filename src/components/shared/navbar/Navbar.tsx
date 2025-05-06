@@ -224,20 +224,48 @@ const Navbar = () => {
 
                 {/* Mobile Menu List */}
                 <div className="flex flex-col gap-4 mt-6 mb-6">
-                  <ul className="flex flex-col gap-6 font-semibold">
+                  <ul className="block capitalize gap-2 py-1 font-semibold text-base justify-center ">
                     {menuList.map((item) => (
-                      <li className="relative group" key={item?.id}>
+                      <li
+                        key={item.id}
+                        onMouseEnter={() => setHoveredMenu(item.id)}
+                        onMouseLeave={() => setHoveredMenu(null)}
+                        className={`relative px-4 py-2 cursor-pointer transition-colors duration-300 ${
+                          item.link === location.pathname
+                            ? "bg-[#FF0000]"
+                            : "text-white"
+                        } hover:text-[#FF0000] `}
+                      >
                         <Link to={item.link}>
                           <span
-                            className={`cursor-pointer hover:text-primary-red transition-all duration-300 ${
+                            className={`inline-block relativecursor-pointer transition-colors duration-300 ${
                               item.link === location.pathname
-                                ? "text-primary-red"
-                                : ""
-                            }`}
+                                ? "bg-[#FF0000] text-[#fff]"
+                                : "text-black"
+                            } hover:text-[#FF0000]`}
                           >
                             {item.name}
                           </span>
                         </Link>
+
+                        {item.children && hoveredMenu === item.id && (
+                          <div className=" transition decoration-500 ease-in bg-white">
+                            <ul className=" group-hover:flex bg-white px-2 py-2 text-left">
+                              {item.children.map((child, index) => (
+                                <li key={index}>
+                                  <button
+                                    onClick={() =>
+                                      handleCategoryClick(child.category)
+                                    }
+                                    className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                                  >
+                                    {child.name}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
