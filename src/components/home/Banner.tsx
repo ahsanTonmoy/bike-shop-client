@@ -13,7 +13,7 @@ import img7 from "@/assets/Banner-image/image/bike-banner-7.jpg";
 export default function HeroSlider() {
   return (
     <div className="container mx-auto">
-      <div className="relative w-full h-screen">
+      <div className="relative w-full">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

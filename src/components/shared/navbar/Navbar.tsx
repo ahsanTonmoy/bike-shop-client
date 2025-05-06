@@ -65,7 +65,7 @@ const Navbar = () => {
       to="/cart"
       className="relative p-2 transition-all duration-300 hover:scale-105 text-lg"
     >
-      <BiCartAdd className={header ? "w-8 h-8 " : "text-black"} />
+      <BiCartAdd className={header ? "text-black" : "text-black"} />
 
       <span className="absolute px-2 py-1 text-xs text-white bg-red-600 rounded-full -top-2 -right-2">
         {cartData?.items?.length}
@@ -80,8 +80,8 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-sm py-4 bg-white text-black w-full px-4 lg:px-20"
-            : " shadow-sm bg-white py-4 px-4 lg:px-20"
+            ? " fixed top-0 z-50 shadow-md py-2 bg-white w-full px-4 lg:px-20"
+            : " shadow-sm bg-white text-blck pt-4 px-4 lg:px-20"
         }
       >
         <div className="container flex gap-8 items-center justify-between px-4 mx-auto lg:px-0">
@@ -99,14 +99,14 @@ const Navbar = () => {
           </div>
 
           {/* Middle - Navigation Links */}
-          <nav className="w-full md:w-2/4 md:flex flex-col justify-center gap-2 text-center py-2 hidden">
+          <nav className="w-full md:w-2/4 md:flex flex-col justify-center gap-2 text-center py-2 hidden relative">
             {/* top */}
             <div className={header ? "hidden" : ""}>
               <Filter />
             </div>
             {/* bottom */}
-            <div className="">
-              <ul className="flex flex-wrap gap-8 py-4 font-semibold text-base justify-center relative">
+            <div className="py-1">
+              <ul className="flex flex-wrap capitalize gap-2 py-1 font-semibold text-base justify-center ">
                 {menuList.map((item) => (
                   <li
                     key={item.id}
@@ -127,18 +127,12 @@ const Navbar = () => {
                         } hover:text-[#FF0000]`}
                       >
                         {item.name}
-                        {/* Underline animation */}
-                        <span
-                          className={`absolute left-0 bottom-0 w-full h-[2px] bg-[#FF0000] transition-all duration-300 scale-x-0 group-hover:scale-x-100 origin-left ${
-                            item.link === location.pathname ? "scale-x-100" : ""
-                          }`}
-                        ></span>
                       </span>
                     </Link>
 
                     {item.children && hoveredMenu === item.id && (
-                      <div className="absolute left-0 top-7 z-50 py-3 transition decoration-slate-500 ease-in">
-                        <ul className=" grid grid-cols-2 gap-4 group-hover:flex bg-white  border rounded-md p-6 w-96 text-left">
+                      <div className="absolute left-0 top-8 z-40 py-3 transition decoration-500 ease-in bg-white">
+                        <ul className=" grid grid-cols-2 gap-4 group-hover:flex bg-white p-6 w-96 text-left">
                           {item.children.map((child, index) => (
                             <li key={index}>
                               <button

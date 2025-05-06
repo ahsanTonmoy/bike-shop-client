@@ -15,9 +15,13 @@ const Home = () => {
         </Helmet>
       </div>
       <div className="">
-        <Banner />
-        <div className="container px-4 mx-auto md:px-0">
-          <div className="py-12 text-center">
+        {/* bannar */}
+        <div className="">
+          <Banner />
+        </div>
+        {/* product */}
+        <div className="container px-4 md:px-20">
+          <div className="pt-12 text-center">
             <h2 className="text-4xl font-extrabold text-gray-900 md:text-5xl">
               Featured Bikes
             </h2>
@@ -32,10 +36,10 @@ const Home = () => {
             </p>
           </div>
           <NewProducts />
-          <div className="flex justify-center py-20">
+          <div className="flex justify-center px-4 md:px-20 pb-20">
             <Link to="/bikes">
-              <button className="px-4 py-2 text-lg font-semibold duration-300 border-2 rounded-md pb text-black border-black hover:border-none hover:bg-[#FF0000] hover:text-white">
-                VIEW ALL
+              <button className="px-4 py-2 text-base font-semibold transition duration-500 ease-in bg-[#FF0000] text-white  hover:border-none hover:bg-[#000] capitalize">
+                see more
               </button>
             </Link>
           </div>
@@ -44,7 +48,7 @@ const Home = () => {
         <div>
           <BikeDesign />
         </div>
-        <div>
+        <div className="px-4 md:px-20">
           <BikeService />
         </div>
       </div>

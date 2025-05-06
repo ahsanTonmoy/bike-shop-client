@@ -5,9 +5,9 @@ const BikeService = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="bg-white">
       <div className="container px-6 mx-auto lg:py-10">
-        <h2 className="text-3xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl">
+        <h2 className="text-3xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl py-4">
           Professional Bike Services
         </h2>
         <div className="flex items-center justify-center my-3">

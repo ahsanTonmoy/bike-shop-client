@@ -4,15 +4,15 @@ import { Helmet } from "react-helmet-async";
 const NotFoundPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-gray-800">
+    <div className="flex items-center justify-center min-h-screen ">
       {/* title */}
       <div className="">
         <Helmet>
           <title>404 Page Not Found - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <div className="   bg-black ">
-        <div className="text-center p-8 bg-white shadow-lg rounded-2xl">
+      <div className="  ">
+        <div className="text-center p-8 bg-white rounded-2xl">
           <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
           <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
           <p className="text-gray-600 mb-6">
