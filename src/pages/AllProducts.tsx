@@ -108,57 +108,73 @@ export default function AllProducts() {
                 Category: {selectedLabel}
               </h1>
             </div>
+            {/* data */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
               {data?.data?.map((product) => (
                 <div
-                  key={product._id}
-                  className="bg-white shadow-md hover:shadow-lg transition-all rounded-md overflow-hidden text-center"
+                  key={product?._id}
+                  className="card bg-white hover:shadow-lg hover:rounded-md cursor-pointer  overflow-hidden transition-all text-center"
                 >
                   <div className="relative">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-44 object-cover"
+                      className="w-full h-44 object-cover transition-all duration-300 cursor-pointer"
                     />
                     <Badge
                       className={`absolute top-2 left-2 px-3 py-1 text-xs font-semibold ${
-                        product.inStock ? "bg-green-600" : "bg-red-600"
-                      } text-white`}
+                        product?.inStock
+                          ? "bg-green-600 text-white"
+                          : "bg-red-600 text-white"
+                      }`}
                     >
                       {product.inStock ? "In Stock" : "Out of Stock"}
                     </Badge>
-                    <Link to={`/details/${product._id}`}>
-                      <button className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white py-2 text-sm hidden group-hover:block">
-                        <div className="flex gap-2 justify-center items-center">
-                          <TbListDetails />
-                          <span>View Details</span>
-                        </div>
-                      </button>
-                    </Link>
+
+                    <div className="">
+                      <Link to={`/details/${product._id}`} className="">
+                        <button className=" view-btn absolute hidden w-full left-0 bottom-0 p-4 bg-black bg-opacity-80 text-white  font-normal ">
+                          <div className="flex gap-2 justify-center">
+                            <div className="mt-[5px]">
+                              <TbListDetails />
+                            </div>
+                            <div className=" capitalize">view details</div>
+                          </div>
+                        </button>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="p-4 space-y-1">
-                    <h3 className="text-lg font-bold">{product.name}</h3>
+
+                  <div className="grid gap-2 p-3">
+                    <h2 className=" text-base font-bold">{product.name}</h2>
                     <p className="text-sm text-gray-600">
                       Model: {product.model}
                     </p>
-                    <p className="text-base font-semibold text-[#f43307c2]">
-                      BDT {product.price}
+                    <p className="text-lg font-medium text-gray-800">
+                      {" "}
+                      <span className="font-bold text-[#f43307c2] uppercase">
+                        bdt {product.price}
+                      </span>
                     </p>
 
-                    <button
-                      disabled={!product.inStock}
-                      onClick={() =>
-                        dispatch(addToCart({ ...product, selectQuantity: 1 }))
-                      }
-                      className={`mt-2 w-full py-2 rounded-md text-sm flex items-center justify-center gap-2 border-2 transition-all ${
-                        !product.inStock
-                          ? "bg-gray-400 text-white cursor-not-allowed"
-                          : "bg-white text-black hover:bg-black hover:text-white"
-                      }`}
-                    >
-                      <BiCart />
-                      Add to Cart
-                    </button>
+                    <div className="flex justify-center">
+                      <button
+                        className={`py-2 px-4 rounded-md ${
+                          !product?.inStock
+                            ? "bg-gray-400 cursor-not-allowed flex justify-center w-fit gap-2 py-2 px-4 text-sm font-medium text-white"
+                            : "flex justify-center w-fit gap-2 py-2 px-4 text-sm font-medium text-black transition-all bg-white border-2 hover:bg-black hover:text-white"
+                        } transition-all`}
+                        disabled={!product?.inStock}
+                        onClick={() =>
+                          dispatch(addToCart({ ...product, selectQuantity: 1 }))
+                        }
+                      >
+                        <div className="">
+                          <BiCart className="text-lg mt-[2px]" />
+                        </div>
+                        <div className=" uppercase">add to cart</div>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

@@ -22,6 +22,7 @@ const SearchResults = () => {
   return (
     <div className="p-6 my-10 h-screen">
       <h1 className="text-2xl font-bold my-4">Results for "{searchTerm}"</h1>
+      {/* search product */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.data?.map((product) => (
           <div
@@ -90,6 +91,12 @@ const SearchResults = () => {
           </div>
         ))}
       </div>
+
+      {data?.data?.length === 0 && (
+        <div className="text-center text-gray-500 mt-6">
+          No products found in this serach "{searchTerm}" .
+        </div>
+      )}
     </div>
   );
 };

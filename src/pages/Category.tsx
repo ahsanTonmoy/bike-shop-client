@@ -18,12 +18,12 @@ const Category = () => {
 
   return (
     <div className="p-6 my-10 min-h-screen">
-      <h1 className="text-2xl font-bold my-4">Categorise: {searchTerm}</h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <h1 className="text-2xl font-bold my-4"> Categorise: {searchTerm}</h1>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.data?.map((product) => (
           <div
             key={product?._id}
-            className="card bg-white hover:shadow-lg hover:rounded-md cursor-pointer  overflow-hidden transition-all text-center"
+            className="card bg-white hover:shadow-lg hover:rounded-md cursor-pointer  overflow-hidden transition-all text-center my-2"
           >
             <div className="relative">
               <img
@@ -87,6 +87,13 @@ const Category = () => {
           </div>
         ))}
       </div>
+      {/*  */}
+
+      {data?.data?.length === 0 && (
+        <div className="text-center text-gray-500 mt-6">
+          No products found in {searchTerm} category.
+        </div>
+      )}
     </div>
   );
 };
