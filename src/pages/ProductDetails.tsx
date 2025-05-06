@@ -1,28 +1,73 @@
 import { Badge } from "@/components/ui/badge";
 import { BiCart } from "react-icons/bi";
 import { useNavigate, useParams } from "react-router-dom";
-// import bikeImge from "@/assets/images/home/bike-1.jpg";
 import Loading from "@/components/Loading";
-import { Button } from "@/components/ui/button";
 import { addToCart } from "@/redux/features/cart/cartSlice";
-import { useSpecificProductsQuery } from "@/redux/features/products/productApi";
+import {
+  useSpecificProductsQuery,
+  useAllProductsQuery,
+} from "@/redux/features/products/productApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { Helmet } from "react-helmet-async";
+import { useState, useEffect, useRef } from "react";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { data, isLoading } = useSpecificProductsQuery(id);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const { data, isLoading } = useSpecificProductsQuery(id);
   const product = data?.data;
-  // console.log(data?.data,"checking product")
+
+  const { data: allProducts } = useAllProductsQuery(undefined);
+
+  const relatedProducts =
+    allProducts?.data?.filter(
+      (item) => item.category === product?.category && item._id !== product._id
+    ) || [];
+
+  const [visibleProducts, setVisibleProducts] = useState(4); // Initial visible products
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  // Lazy load more products when reaching the bottom
+  useEffect(() => {
+    if (!observer.current) {
+      observer.current = new IntersectionObserver(
+        ([entry]) => {
+          if (
+            entry.isIntersecting &&
+            visibleProducts < relatedProducts.length
+          ) {
+            setVisibleProducts((prev) => prev + 4); // Load more products
+          }
+        },
+        {
+          rootMargin: "100px",
+        }
+      );
+    }
+
+    const target = document.querySelector("#load-more-trigger");
+    if (target) {
+      observer.current.observe(target);
+    }
+
+    return () => {
+      if (observer.current && target) {
+        observer.current.unobserve(target);
+      }
+    };
+  }, [visibleProducts, relatedProducts.length]);
+
   const handleOrder = () => {
     dispatch(addToCart({ ...product, selectQuantity: 1 }));
     navigate("/cart");
   };
+
   if (isLoading) {
     return <Loading />;
   }
+
   if (!product) {
     return (
       <div className="mt-10 text-xl text-center text-red-600">
@@ -33,20 +78,15 @@ const ProductDetails = () => {
 
   return (
     <div className="container px-4 py-8 mx-auto">
-      <div className="">
-        <Helmet>
-          <title>{product.name} - Bike Shop || Online Delivary</title>
-        </Helmet>
-      </div>
-      <div className="overflow-hidden bg-white rounded-lg shadow-lg">
+      <Helmet>
+        <title>{product.name} - Bike Shop || Online Delivery</title>
+      </Helmet>
+
+      <div className="overflow-hidden bg-white px-4 md:px-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Left Side - Image */}
-          <div className="relative shadow-lg">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-[300px] md:h-[450px] object-cover"
-            />
+          {/* Product Image */}
+          <div className="relative ">
+            <img src={product.image} alt={product.name} className="w-full " />
             <Badge
               className={`absolute top-3 right-3 px-3 py-1 text-sm font-semibold ${
                 product?.inStock
@@ -58,7 +98,7 @@ const ProductDetails = () => {
             </Badge>
           </div>
 
-          {/* e - Details */}
+          {/* Product Details */}
           <div className="flex flex-col gap-2 justify-center p-6">
             <h1 className="text-2xl font-bold text-gray-800 md:text-3xl">
               {product.name}
@@ -67,23 +107,18 @@ const ProductDetails = () => {
               {product.category} Bike | Model: {product.model}
             </p>
             <p className="text-lg font-medium text-gray-600">
-              <span className="font-semibold"> BDT</span>{" "}
+              <span className="font-semibold">BDT</span>{" "}
               <span className="text-xl font-bold text-primary-red">
                 {product.price}
               </span>
             </p>
-            <Button className="flex w-fit my-4 text-sm bg-green-500 hover:bg-green-500 cursor-default">
-              Quantity: <span className="text-sm">{product?.quantity}</span>{" "}
-            </Button>
-            <p className=" text-gray-700">{product.description}</p>
+            <p className="text-gray-700">{product.description}</p>
 
-            {/* Buttons */}
+            {/* Action Buttons */}
             {product?.inStock && (
               <div className="flex flex-col gap-4 mt-6 sm:flex-row">
-                {/* Add to Cart Button */}
                 <button
-                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-white font-semibold bg-primary-red hover:bg-red-700 transition-all justify-center`}
-                  // disabled={product.inStock}
+                  className="flex items-center gap-2 px-4 py-2 rounded-md text-white font-semibold bg-[#EA1D25] hover:bg-black transition decoration-400 ease-in justify-center"
                   onClick={() =>
                     dispatch(addToCart({ ...product, selectQuantity: 1 }))
                   }
@@ -91,11 +126,9 @@ const ProductDetails = () => {
                   <BiCart className="text-xl hover:scale-[1.05]" /> Add to Cart
                 </button>
 
-                {/* Go Back Button */}
-
                 <button
                   onClick={handleOrder}
-                  className="px-4 py-2 border bgDark text-white  rounded-md font-semibold hover:scale-[1.05] hover:text-white duration-300 transition"
+                  className="px-4 py-2 border bgDark hover:bg-[#EA1D25] text-white rounded-md font-semibold hover:scale-[1.05] hover:text-white duration-300 transition"
                 >
                   Order New
                 </button>
@@ -104,6 +137,49 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* Related Products Section */}
+      {relatedProducts.length > 0 && (
+        <div className="mt-12 px-4 md:px-20">
+          <h2 className="text-2xl font-semibold mb-6 border-b pb-2">
+            Related {product?.category} Bikes
+          </h2>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {relatedProducts.slice(0, visibleProducts).map((item) => (
+              <div
+                key={item._id}
+                className="border rounded-lg p-4 hover:shadow-md transition cursor-pointer"
+                onClick={() => navigate(`/details/${item._id}`)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-40 object-cover rounded"
+                />
+                <h3 className="mt-2 text-lg font-semibold">{item.name}</h3>
+                <p className="text-sm text-gray-500">{item.model}</p>
+                <p className="text-primary-red font-bold">BDT {item.price}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Load More Trigger (Invisible target) */}
+          <div id="load-more-trigger" className="h-10"></div>
+
+          {/* Optional: View All by Category Button */}
+          {visibleProducts < relatedProducts.length && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => setVisibleProducts(visibleProducts + 4)}
+                className="px-6 py-2 bg-primary-red text-white rounded-md font-semibold hover:bg-red-700 transition"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

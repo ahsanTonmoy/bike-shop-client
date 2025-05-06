@@ -2,8 +2,11 @@ import Banner from "@/components/home/Banner";
 import BikeDesign from "@/components/home/BikeDesign";
 import BikeService from "@/components/home/BikeService";
 import NewProducts from "@/components/home/NewProducts";
+import TestimonialsPage from "@/components/home/TestimonialsPage";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import ClientPartners from "./ClientPartners";
+import ContactFormPreview from "./Contact";
 
 const Home = () => {
   return (
@@ -50,6 +53,19 @@ const Home = () => {
         </div>
         <div className="px-4 md:px-20">
           <BikeService />
+        </div>
+        {/*  */}
+        <div className="">
+          <TestimonialsPage />
+        </div>
+        {/*  */}
+        <div className="">
+          <ClientPartners />
+        </div>
+
+        {/*  */}
+        <div className="">
+          <ContactFormPreview />
         </div>
       </div>
     </div>
