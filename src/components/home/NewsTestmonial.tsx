@@ -41,7 +41,7 @@ const NewsletterTestimonial = () => {
   };
 
   return (
-    <section className="container relative w-full mx-auto my-16 ">
+    <section className="container relative w-full mx-auto  ">
       {/* Helmet image - only visible on lg+ */}
       <img
         src={safetyHelment1}

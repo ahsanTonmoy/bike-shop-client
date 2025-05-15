@@ -68,9 +68,9 @@ export default function ContactFormPreview() {
           contact with us
         </h2>
         <div className="flex items-center justify-center m-4">
-          <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
-          <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
-          <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
+          <div className="w-12 h-0.5 bg-orange-600 mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-orange-600"></div>
+          <div className="w-12 h-0.5 bg-orange-600 ml-2"></div>
         </div>
         <p className="text-center text-black opacity-60 max-w-xl mx-auto mb-10">
           If you would like to find out more about how we can help you, please

@@ -1,5 +1,5 @@
-import bikeImage from "@/assets/image/bike-2.jpg";
-import SsafetyHelmet1 from "@/assets/images/home/safety-helmet-1.jpg";
+import bikeImage from "@/assets/Banner-image/wp1906398-mv-agusta-wallpapers.jpg";
+import SsafetyHelmet1 from "@/assets/Banner-image/image/bike- banner.8.jpg";
 import { Link } from "react-router-dom";
 
 const OurFacilities = () => {

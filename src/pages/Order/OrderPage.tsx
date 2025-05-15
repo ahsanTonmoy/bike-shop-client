@@ -177,7 +177,7 @@ const OrderPage = () => {
             </div>
             {profileComplete && cartData?.items.length > 0 && (
               <Button
-                className="w-full mt-4 text-white bg-primary-red"
+                className="w-full mt-4 text-white bg-orange-600"
                 onClick={handleOrderCreate}
               >
                 Order

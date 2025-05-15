@@ -1,4 +1,4 @@
-import bikeImage7 from "@/assets/image/bike-7.jpg";
+import bikeImage7 from "@/assets/Banner-image/4588633.jpg";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -50,7 +50,7 @@ const BikeService = () => {
           <img
             src={bikeImage7}
             alt="Bike Service"
-            className="object-cover w-full rounded-xl hover:shadow-2xl"
+            className="min-w-48 rounded-xl hover:shadow-2xl"
           />
         </div>
       </div>

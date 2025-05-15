@@ -41,10 +41,10 @@ export default function Services() {
           <h1 className="py-3 text-4xl font-bold text-crimsonRed animate-fade-in">
             Our Services
           </h1>
-          <div className="flex items-center justify-center mt-2">
-            <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
-            <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
-            <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
+          <div className="flex items-center justify-center my-3">
+            <div className="w-12 h-0.5 bg-orange-500 mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-orange-500"></div>
+            <div className="w-12 h-0.5 bg-orange-500 ml-2"></div>
           </div>
           <p className="w-1/2 mx-auto mt-5 mb-10 text-lg text-gray-600">
             We provide the best solutions for your biking needs. Whether you're

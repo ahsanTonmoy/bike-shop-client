@@ -109,7 +109,7 @@ const ProductDetails = () => {
             </p>
             <p className="text-lg font-medium text-gray-600">
               <span className="font-semibold">BDT</span>{" "}
-              <span className="text-xl font-bold text-primary-red">
+              <span className="text-xl font-bold text-orange-600">
                 {product.price}
               </span>
             </p>
@@ -164,7 +164,7 @@ const ProductDetails = () => {
                 />
                 <h3 className="mt-2 text-lg font-semibold">{item.name}</h3>
                 <p className="text-sm text-gray-500">{item.model}</p>
-                <p className="text-primary-red font-bold">BDT {item.price}</p>
+                <p className="text-orange-600 font-bold">BDT {item.price}</p>
               </div>
             ))}
           </div>
@@ -177,7 +177,7 @@ const ProductDetails = () => {
             <div className="flex justify-center mt-6">
               <button
                 onClick={() => setVisibleProducts(visibleProducts + 4)}
-                className="px-6 py-2 bg-primary-red text-white rounded-md font-semibold hover:bg-red-700 transition"
+                className="px-6 py-2 bg-orange-600 text-white rounded-md font-semibold hover:bg-red-700 transition"
               >
                 Load More
               </button>

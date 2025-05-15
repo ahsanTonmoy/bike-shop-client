@@ -55,7 +55,7 @@ export function ProfileDropdown({ user }: { user: TUser }) {
             <Link to={"/admin/dashboard"} className="w-full">
               <Button
                 variant={"outline"}
-                className="w-full hover:text-primary-red"
+                className="w-full hover:text-orange-600"
               >
                 Dashboard
               </Button>
@@ -64,7 +64,7 @@ export function ProfileDropdown({ user }: { user: TUser }) {
             <Link to={"/user/dashboard"} className="w-full">
               <Button
                 variant={"outline"}
-                className="w-full hover:text-primary-red"
+                className="w-full hover:text-orange-600"
               >
                 Dashboard
               </Button>
@@ -75,7 +75,7 @@ export function ProfileDropdown({ user }: { user: TUser }) {
           <Button
             onClick={handleLogOut}
             variant={"outline"}
-            className="w-full bg-primary-red text-white hover:bg-red-700 hover:text-white"
+            className="w-full bg-orange-600 text-white hover:bg-orange-700 hover:text-white"
           >
             Log Out
           </Button>

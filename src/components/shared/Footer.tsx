@@ -22,7 +22,7 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/a.r.tonmoy.103298"
                 target="_blank"
-                className="hover:text-primary-red duration-300"
+                className="hover:text-orange-600 duration-300"
               >
                 {" "}
                 <FaFacebookF className="w-7 h-7" />
@@ -30,7 +30,7 @@ export default function Footer() {
               <a
                 href="https://wa.me/+8801994361085"
                 target="_blank"
-                className="hover:text-primary-red duration-300"
+                className="hover:text-orange-600 duration-300"
               >
                 {" "}
                 <FaWhatsapp className="w-7 h-7" />
@@ -38,7 +38,7 @@ export default function Footer() {
               <a
                 href="https://www.linkedin.com/in/ahsanur-rahman-tonmoy-1680921b6"
                 target="_blank"
-                className="hover:text-primary-red duration-300"
+                className="hover:text-orange-600 duration-300"
               >
                 {" "}
                 <FaLinkedinIn className="w-7 h-7" />

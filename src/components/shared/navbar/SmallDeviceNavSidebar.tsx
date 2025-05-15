@@ -6,8 +6,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import {  selectCurrentToken } from "@/redux/features/auth/authSlice";
-import {  useAppSelector } from "@/redux/hooks";
+import { selectCurrentToken } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
 import { Menu, Sheet } from "lucide-react";
 import { menuList } from "./navbarData";
 import { Link } from "react-router-dom";
@@ -18,16 +18,15 @@ import { TUser } from "@/types/types";
 const SmallDeviceNavSidebar = () => {
   const token = useAppSelector(selectCurrentToken);
 
-
   let isUser;
   if (token) {
     isUser = verifyToken(token) as TUser;
   }
-//   const handleLogOut = async () => {
-//     dispatch(logout());
-//     toast.success("logout!");
-//     await logOut({});
-//   };
+  //   const handleLogOut = async () => {
+  //     dispatch(logout());
+  //     toast.success("logout!");
+  //     await logOut({});
+  //   };
   return (
     <div className="block lg:hidden">
       <div className="flex items-center justify-between px-2 ">
@@ -54,16 +53,16 @@ const SmallDeviceNavSidebar = () => {
                   <li className="relative group" key={item.id}>
                     <Link to={item.link}>
                       <span
-                        className={`cursor-pointer hover:text-primary-red transition-all duration-300 ${
+                        className={`cursor-pointer hover:text-orange-600 transition-all duration-300 ${
                           item.link === location.pathname
-                            ? "text-primary-red"
+                            ? "text-orange-600"
                             : ""
                         }`}
                       >
                         {item.name}
                       </span>
                     </Link>
-                    {/* <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-primary-red transition-all duration-300 group-hover:w-full"></span> */}
+                    {/* <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-orange-600 transition-all duration-300 group-hover:w-full"></span> */}
                   </li>
                 ))}
               </ul>
@@ -76,7 +75,7 @@ const SmallDeviceNavSidebar = () => {
                     <Link to={"/admin/dashboard"} className="w-full">
                       <Button
                         variant={"outline"}
-                        className="w-full hover:text-primary-red"
+                        className="w-full hover:text-orange-600"
                       >
                         Dashboard
                       </Button>
@@ -85,7 +84,7 @@ const SmallDeviceNavSidebar = () => {
                     <Link to={"/user/dashboard"} className="w-full">
                       <Button
                         variant={"outline"}
-                        className="w-full hover:text-primary-red"
+                        className="w-full hover:text-orange-600"
                       >
                         Dashboard
                       </Button>
@@ -96,7 +95,7 @@ const SmallDeviceNavSidebar = () => {
                 <Link to="/login">
                   <Button
                     variant="outline"
-                    className="text-primary-red font-semibold text-lg hover:shadow-md h-10" // Ensure button height matches
+                    className="text-orange-600 font-semibold text-lg hover:shadow-md h-10" // Ensure button height matches
                   >
                     Log in
                   </Button>

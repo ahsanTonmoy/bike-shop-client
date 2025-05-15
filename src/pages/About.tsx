@@ -33,10 +33,10 @@ export default function About() {
           <h1 className="mb-3 text-4xl font-bold text-center text-primary">
             About Us
           </h1>
-          <div className="flex items-center justify-center mt-2">
-            <div className="w-12 h-0.5 bg-[#FF0000] mr-2"></div>
-            <div className="w-3 h-3 rotate-45 bg-[#FF0000]"></div>
-            <div className="w-12 h-0.5 bg-[#FF0000] ml-2"></div>
+          <div className="flex items-center justify-center my-3">
+            <div className="w-12 h-0.5 bg-orange-500 mr-2"></div>
+            <div className="w-3 h-3 rotate-45 bg-orange-500"></div>
+            <div className="w-12 h-0.5 bg-orange-500 ml-2"></div>
           </div>
           <p className="max-w-2xl mx-auto mt-3 leading-relaxed text-gray-600 text-center">
             Welcome to Bike Shop! We are a team of passionate cyclists committed
