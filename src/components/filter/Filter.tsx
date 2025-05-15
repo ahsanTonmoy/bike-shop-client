@@ -17,7 +17,7 @@ const Filter = () => {
 
   return (
     <div className="h-screen">
-      <div className=" border-2 border-[#FF541F] rounded-sm w-2/4 mx-auto px-4 py-3 my-10">
+      <div className=" border-2 border-[#FF541F] rounded-sm md:w-2/4 mx-auto px-4 py-3 my-10">
         <form onSubmit={handleSearch} className="flex items-center gap-2">
           <input
             type="text"
