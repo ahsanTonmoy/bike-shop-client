@@ -23,11 +23,10 @@ import { RootState } from "@/redux/store";
 import { verifyToken } from "@/utils/verifyToken";
 import { useEffect, useState } from "react";
 import { menuList } from "@/utils/menu";
-import Filter from "@/components/filter/Filter";
 import { useNavigate } from "react-router-dom";
 import { MdShoppingBag } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
-
+import { FaSearch } from "react-icons/fa";
 //
 const Navbar = () => {
   const token = useAppSelector(selectCurrentToken);
@@ -83,8 +82,8 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-md py-2 bg-white w-full px-4 lg:px-20"
-            : " shadow-sm bg-white text-blck py-4 md:py-2 px-4 lg:px-20"
+            ? " fixed top-0 z-50 shadow-md py-2 bg-white w-full px-2 lg:px-20"
+            : " shadow-sm bg-white text-blck py-4 md:py-2 px-2 lg:px-20"
         }
       >
         <div className="container flex gap-8 items-center justify-between px-4 mx-auto lg:px-0">
@@ -104,12 +103,10 @@ const Navbar = () => {
           {/* Middle - Navigation Links */}
           <nav className="w-full md:w-2/4 md:flex flex-col justify-center gap-2 text-center py-2 hidden relative">
             {/* top */}
-            <div className={header ? "hidden" : ""}>
-              <Filter />
-            </div>
+            <div className={header ? "hidden" : ""}>{/* <Filter /> */}</div>
             {/* bottom */}
             <div className="py-1">
-              <ul className="flex flex-wrap capitalize gap-2 py-1 font-semibold text-base justify-center ">
+              <ul className="flex flex-wrap uppercase  py-1 font-semibold text-base justify-center ">
                 {menuList.map((item) => (
                   <li
                     key={item.id}
@@ -117,17 +114,17 @@ const Navbar = () => {
                     onMouseLeave={() => setHoveredMenu(null)}
                     className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
                       item.link === location.pathname
-                        ? "text-[#FF0000]"
+                        ? "text-orange-500"
                         : "text-black"
-                    } hover:text-[#FF0000]`}
+                    } hover:text-orange-500`}
                   >
                     <Link to={item.link}>
                       <span
                         className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
                           item.link === location.pathname
-                            ? "text-[#FF0000]"
+                            ? "text-orange-500"
                             : "text-black"
-                        } hover:text-[#FF0000]`}
+                        } hover:text-orange-500`}
                       >
                         {item.name}
                       </span>
@@ -142,7 +139,7 @@ const Navbar = () => {
                                 onClick={() =>
                                   handleCategoryClick(child.category)
                                 }
-                                className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                                className="text-gray-700 hover:text-orange-500 whitespace-nowrap transition-colors duration-200"
                               >
                                 {child.name}
                               </button>
@@ -159,7 +156,10 @@ const Navbar = () => {
           </nav>
 
           {/* Right Side - Cart & Login/Profile */}
-          <div className="items-center hidden gap-6 lg:flex">
+          <div className="items-center hidden md:gap-6 gap-2 lg:flex">
+            <Link to={"/search"} className="">
+              <FaSearch />
+            </Link>
             {/* Cart */}
             {CartIcon}
             {/* Profile/Login Button with dianamic add user data form data base*/}
@@ -179,28 +179,27 @@ const Navbar = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-5 ">
+                  <div className="flex items-center gap-2">
+                    <Link to={"/search"} className="">
+                      <FaSearch />
+                    </Link>
                     {/* Cart */}
                     {CartIcon}
-
-                    {/* Login/Profile */}
+                    {/* Profile/Login Button with dianamic add user data form data base*/}
                     {isUser ? (
                       <ProfileDropdown user={isUser as TUser} />
                     ) : (
                       <Link to="/login">
-                        <Button
-                          variant="outline"
-                          className="font-semibold text-primary-red"
-                        >
-                          Log in
-                        </Button>
+                        <div className="text-xl mt-[1px]">
+                          <FaUser />
+                        </div>
                       </Link>
                     )}
                   </div>
                   <Button
                     className={
                       header
-                        ? "hover:bg-white hover:text-black text-white text-xl"
+                        ? "hover:bg-white text-white text-xl"
                         : "bg-transparent text-black hover:text-white  text-xl"
                     }
                     size="icon"
@@ -234,7 +233,7 @@ const Navbar = () => {
                           item.link === location.pathname
                             ? "bg-[#FF0000]"
                             : "text-white"
-                        } hover:text-[#FF0000] `}
+                        } hover:text-orange-500 `}
                       >
                         <Link to={item.link}>
                           <span
@@ -242,7 +241,7 @@ const Navbar = () => {
                               item.link === location.pathname
                                 ? "bg-[#FF0000] text-[#fff]"
                                 : "text-black"
-                            } hover:text-[#FF0000]`}
+                            } hover:text-orange-500`}
                           >
                             {item.name}
                           </span>
@@ -257,7 +256,7 @@ const Navbar = () => {
                                     onClick={() =>
                                       handleCategoryClick(child.category)
                                     }
-                                    className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                                    className="text-gray-700 hover:text-orange-500 whitespace-nowrap transition-colors duration-200"
                                   >
                                     {child.name}
                                   </button>

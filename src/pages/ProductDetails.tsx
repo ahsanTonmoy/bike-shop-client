@@ -10,6 +10,7 @@ import {
 import { useAppDispatch } from "@/redux/hooks";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -112,13 +113,17 @@ const ProductDetails = () => {
                 {product.price}
               </span>
             </p>
+
+            <Button className="flex my-4 text-sm bg-green-500 cursor-default w-fit hover:bg-green-500">
+              Quantity: <span className="text-sm">{product?.quantity}</span>{" "}
+            </Button>
             <p className="text-gray-700">{product.description}</p>
 
             {/* Action Buttons */}
             {product?.inStock && (
               <div className="flex flex-col gap-4 mt-6 sm:flex-row">
                 <button
-                  className="flex items-center gap-2 px-4 py-2 rounded-md text-white font-semibold bg-[#EA1D25] hover:bg-black transition decoration-400 ease-in justify-center"
+                  className="flex items-center gap-2 px-4 py-2 rounded-md text-white font-semibold bg-orange-500 hover:bg-black transition decoration-400 ease-in justify-center"
                   onClick={() =>
                     dispatch(addToCart({ ...product, selectQuantity: 1 }))
                   }
@@ -128,7 +133,7 @@ const ProductDetails = () => {
 
                 <button
                   onClick={handleOrder}
-                  className="px-4 py-2 border bgDark hover:bg-[#EA1D25] text-white rounded-md font-semibold hover:scale-[1.05] hover:text-white duration-300 transition"
+                  className="px-4 py-2 border bgDark hover:bg-orange-500 text-white rounded-md font-semibold hover:scale-[1.05] hover:text-white duration-300 transition"
                 >
                   Order New
                 </button>

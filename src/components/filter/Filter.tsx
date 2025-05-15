@@ -16,19 +16,21 @@ const Filter = () => {
   };
 
   return (
-    <div className=" border-2 border-[#FF541F] rounded-full px-4 py-3">
-      <form onSubmit={handleSearch} className="flex items-center gap-2">
-        <input
-          type="text"
-          placeholder="Search by name, model, or brand"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className=" w-full"
-        />
-        <button type="submit" className="text-xl">
-          <IoSearchSharp />
-        </button>
-      </form>
+    <div className="h-screen">
+      <div className=" border-2 border-[#FF541F] rounded-sm w-2/4 mx-auto px-4 py-3 my-10">
+        <form onSubmit={handleSearch} className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Search by name, model, or brand"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className=" w-full"
+          />
+          <button type="submit" className="text-xl">
+            <IoSearchSharp />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

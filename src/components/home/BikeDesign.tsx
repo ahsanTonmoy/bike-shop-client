@@ -1,22 +1,21 @@
 import bikeImage24 from "@/assets/image/bike-24.jpg";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function BikeDesign() {
-  const navigate = useNavigate();
   return (
-    <section className="overflow-hidden bg-[#010308] text-white container mx-auto">
+    <section className="overflow-hidden h-[70%] xl:px-0 bg-[#000] text-white container mx-auto opacity-80">
       <div className="relative gap-5 px-10 py-10">
-        <div className="relative w-[1200px]">
+        <div className="relative w-full">
           {/* Image - background layer */}
           <img
             src={bikeImage24}
             alt="MT76 Featured Bike"
-            className="relative w-full z-100"
+            className="relative z-10 hidden w-full opacity-90 lg:block "
           />
 
           {/* Title over image */}
-          <div className="absolute z-10 top-36 left-10">
+          <div className="absolute -z-0 top-36 left-10">
             <h2 className="text-4xl font-bold tracking-wide uppercase">
               BIKE SHOP
             </h2>
@@ -27,7 +26,10 @@ export default function BikeDesign() {
         </div>
 
         {/* Offer Section */}
-        <div className="absolute z-20 right-10 bottom-28 w-96">
+        <div className="absolute z-50 right-10 bottom-28 w-96">
+          <p className="mt-1 text-3xl font-semibold text-orange-500">
+            text-orange-500t
+          </p>
           <h2 className="mb-4 text-3xl font-bold uppercase">
             For Popular Bikes
           </h2>
@@ -38,18 +40,15 @@ export default function BikeDesign() {
             deals and get riding today.
           </p>
           <h3 className="text-2xl font-bold uppercase">
-            Now At <span className="text-3xl bg-red-600 ">$1250</span>
+            Now At <span className="text-3xl bg-orange-500 ">$1250</span>
           </h3>
-          <p className="mt-1 text-sm font-semibold text-gray-400">
-            35% Discount
-          </p>
 
-          <Button
-            onClick={() => navigate("/bikes")}
-            className="px-6 py-2 mt-6 bg-[red-] text-white font-bold  bg-red-600 rounded-lg shadow-md hover:bg-red-700"
-          >
-            See More
-          </Button>
+          <Link to="/bikes">
+            <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md hover:bg-red-700">
+              See More
+              <ArrowRight />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

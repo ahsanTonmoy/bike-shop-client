@@ -5,7 +5,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useLogOutMutation } from "@/redux/features/auth/authApi";
 import { logout } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
-import brand from "@/assets/images/logo/Bike_Shop_Logo.png";
+import brand from "@/assets/images/logo/Bike_Shop_Logo_White.png";
 import { IoIosLogOut } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 export default function DashboardLayout() {
@@ -28,7 +28,7 @@ export default function DashboardLayout() {
             className={`fixed inset-y-0 left-0 shadow z-50 bgDark  text-white transition-all duration-300 overflow-y-auto 
             ${isSidebarOpen ? "w-80" : "w-0"} xl:w-2/12 lg:w-3/12 `}
           >
-            <div className="p-4 text-lg bg-white font-semibold border-b border-gray-700">
+            <div className="p-4 text-lg  font-semibold border-b border-gray-700">
               <Link to="/" className="flex  justify-center items-center gap-3">
                 {" "}
                 <div className="">

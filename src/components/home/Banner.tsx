@@ -1,73 +1,96 @@
-// Banner.tsx
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-import img2 from "@/assets/Banner-image/image/bike-banner-2.jpg";
-import img3 from "@/assets/Banner-image/image/bike-banner-3.jpg";
-import img4 from "@/assets/Banner-image/image/bike-banner-4.jpg";
-import img5 from "@/assets/Banner-image/image/bike-banner-5.jpg";
-import img6 from "@/assets/Banner-image/image/bike-banner-6.jpg";
-import img7 from "@/assets/Banner-image/image/bike-banner-7.jpg";
+import {
+  default as img1,
+  default as img6,
+} from "@/assets/Banner-image/Wallpaper Bmw K R Bike (1).jpg";
+import img2 from "@/assets/Banner-image/1401134.jpg";
+import img4 from "@/assets/Banner-image/wp1906398-mv-agusta-wallpapers.jpg";
+import img5 from "@/assets/Banner-image/2914395.jpg";
+import {
+  default as img3,
+  default as img7,
+} from "@/assets/Banner-image/Wallpaper Bmw K R Bike.jpg";
+import SlideContent from "./SliderContent";
 
-const slides = [img2, img3, img4, img5, img6, img7];
-
-export default function Banner() {
+export default function HeroSlider() {
   return (
-    <div className="w-full relative">
-      {/* Swiper Slider */}
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        pagination={{ clickable: true }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        touchStartPreventDefault={false}
-        className="mySwiper h-[80vh]"
-      >
-        {slides.map((img, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
-              {/* Background Image */}
-              <img
-                src={img}
-                alt={`Bike banner ${index + 1}`}
-                className="w-full h-[80vh] object-cover"
+    <div className="container mx-auto">
+      <div className="relative w-full max-h-screen ">
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper h-[70vh]"
+        >
+          {/* Slide  */}
+
+          {slideData.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <SlideContent
+                h5={slide.h5}
+                title={slide.title}
+                subtitle={slide.subtitle}
+                img={slide.img}
               />
-
-              {/* Overlay Content */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 sm:px-12 md:px-20">
-                <div className="max-w-2xl text-white">
-                  <h2 className="text-2xl sm:text-4xl font-semibold uppercase tracking-widest">
-                    Bike Shop
-                  </h2>
-                  <h1 className="mt-2 text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight">
-                    MT76
-                  </h1>
-                  <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-200">
-                    Discover high-performance bikes built for speed, comfort,
-                    and reliability.
-                  </p>
-                  <button className="mt-6 px-6 py-3 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 active:scale-95 transition text-white rounded-lg text-base font-medium shadow-md">
-                    Explore Collection
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      {/* Sticky CTA on Mobile */}
-      <div className="fixed bottom-4 left-0 right-0 px-4 md:hidden z-50">
-        <button className="w-full bg-blue-600 text-white py-3 rounded-xl shadow-lg hover:bg-blue-700 transition">
-          Shop Now
-        </button>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
 }
+const slideData = [
+  {
+    h5: "2023 Road King",
+    title: "Power That Commands the Road",
+    subtitle: "Rule every ride with precision and speed.",
+    img: img1,
+  },
+  {
+    h5: "Comfort Ride",
+    title: "Where Comfort Meets Performance",
+    subtitle: "Engineered for those who ride far and ride bold.",
+    img: img2,
+  },
+  {
+    h5: "Adventure Tour",
+    title: "Embrace the Spirit of Adventure",
+    subtitle: "Explore the world on two wheels, your way.",
+    img: img3,
+  },
+  {
+    h5: "Royal Drive",
+    title: "Feel the Rush of Royal Power",
+    subtitle: "The road is yours—own it with every ride.",
+    img: img4,
+  },
+  {
+    h5: "Bold & Stylish",
+    title: "Ride in Supreme Style",
+    subtitle: "Built for bold journeys and unforgettable moments.",
+    img: img5,
+  },
+  {
+    h5: "Bold & Stylish",
+    title: "Ride in Supreme Style",
+    subtitle: "Built for bold journeys and unforgettable moments.",
+    img: img6,
+  },
+  {
+    h5: "Bold & Stylish",
+    title: "Ride in Supreme Style",
+    subtitle: "Built for bold journeys and unforgettable moments.",
+    img: img7,
+  },
+];

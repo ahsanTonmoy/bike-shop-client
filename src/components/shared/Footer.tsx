@@ -54,17 +54,17 @@ export default function Footer() {
                   key={item.id}
                   className={` relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
                     item.link === location.pathname
-                      ? "text-[#FF0000]"
+                      ? "text-orange-500"
                       : "text-white"
-                  } hover:text-[#FF0000]`}
+                  } hover:text-orange-500`}
                 >
                   <Link to={item.link}>
                     <span
                       className={`inline-block relative px-1 pb-1 cursor-pointer transition-colors duration-300 ${
                         item.link === location.pathname
-                          ? "text-[#FF0000]"
+                          ? "text-orange-500"
                           : "text-white"
-                      } hover:text-[#FF0000]`}
+                      } hover:text-orange-500`}
                     >
                       {item.name}
                     </span>
@@ -79,7 +79,7 @@ export default function Footer() {
                               onClick={() =>
                                 handleCategoryClick(child.category)
                               }
-                              className="text-gray-700 hover:text-[#FF0000] whitespace-nowrap transition-colors duration-200"
+                              className="text-gray-700 hover:text-orange-500 whitespace-nowrap transition-colors duration-200"
                             >
                               {child.name}
                             </button>

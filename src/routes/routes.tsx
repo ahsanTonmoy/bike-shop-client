@@ -27,6 +27,7 @@ import Contact from "@/pages/Contact";
 import NotFoundPage from "../pages/NotFoundPage";
 import SearchResults from "@/components/filter/SearchResults";
 import Category from "@/pages/Category";
+import Filter from "@/components/filter/Filter";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/search",
+        element: <Filter />,
       },
       {
         path: "/search-results",

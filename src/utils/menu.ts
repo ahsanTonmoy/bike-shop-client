@@ -7,7 +7,7 @@ export const menuList = [
   },
   {
     id: 2,
-    name: "our shop",
+    name: "our Bikes",
     link: "/bikes",
     children: [
       { name: "Mountain Bikes", category: "Mountain" },
@@ -16,11 +16,6 @@ export const menuList = [
       { name: "Kids Bikes", category: "Kids" },
       { name: "Accessories", category: "Accessories" },
     ],
-  },
-  {
-    id: 3,
-    name: "flash sale",
-    link: "/flash-sale",
   },
   {
     id: 6,

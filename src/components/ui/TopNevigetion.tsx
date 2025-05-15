@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const TopNevigetion = () => {
   return (
     <div>
-      <div className="bg-[#EA1D25] flex justify-around p-4 text-white font-normal text-sm">
+      <div className="bg-orange-500 flex justify-around p-4 text-white font-normal text-sm">
         {/* support */}
         <div className="flex gap-2 py-1 ">
           <div className="mt-1">

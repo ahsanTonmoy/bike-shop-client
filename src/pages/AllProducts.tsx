@@ -85,8 +85,8 @@ export default function AllProducts() {
                   onClick={() => handleCategoryClick(cat.value)}
                   className={`py-2 px-4 cursor-pointer border-b transition-all ${
                     selectedCategory === cat.value
-                      ? "bg-[#EA1D25] text-white font-bold"
-                      : " hover:text-[#EA1D25] text-gray-800 "
+                      ? "bg-orange-500 text-white font-bold"
+                      : " hover:bg-orange-500 text-gray-800 "
                   }`}
                 >
                   <h3
