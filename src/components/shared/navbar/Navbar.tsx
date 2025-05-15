@@ -231,7 +231,7 @@ const Navbar = () => {
                         onMouseLeave={() => setHoveredMenu(null)}
                         className={`relative px-4 py-2 cursor-pointer transition-colors duration-300 ${
                           item.link === location.pathname
-                            ? "bg-[#FF0000]"
+                            ? "bg-orange-600"
                             : "text-white"
                         } hover:text-orange-500 `}
                       >
@@ -239,7 +239,7 @@ const Navbar = () => {
                           <span
                             className={`inline-block relativecursor-pointer transition-colors duration-300 ${
                               item.link === location.pathname
-                                ? "bg-[#FF0000] text-[#fff]"
+                                ? "bg-orange-600 text-[#fff]"
                                 : "text-black"
                             } hover:text-orange-500`}
                           >

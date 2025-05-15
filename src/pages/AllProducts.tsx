@@ -69,7 +69,7 @@ export default function AllProducts() {
           </h1>
 
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-0.5 bg-[#FF0000] mr-2" />
+            <div className="w-12 h-0.5 bg-orange-600 mr-2" />
             <div className="w-3 h-3 rotate-45 bg-[#FF0000]" />
             <div className="w-12 h-0.5 bg-[#FF0000] ml-2" />
           </div>
@@ -191,7 +191,7 @@ export default function AllProducts() {
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-5 py-2 bg-[#FF0000] text-white rounded hover:bg-teal-600 disabled:bg-gray-400 transition"
+                className="px-5 py-2 bg-orange-600 text-white rounded hover:bg-teal-600 disabled:bg-gray-400 transition"
               >
                 Prev
               </button>
@@ -201,7 +201,7 @@ export default function AllProducts() {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-5 py-2 bg-[#FF0000] text-white rounded hover:bg-black disabled:bg-gray-400 transition"
+                className="px-5 py-2 bg-orange-600 text-white rounded hover:bg-black disabled:bg-gray-400 transition"
               >
                 Next
               </button>

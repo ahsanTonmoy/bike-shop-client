@@ -83,7 +83,7 @@ const CartPage = () => {
                   <Button
                     onClick={() => dispatch(removeFromCart(item?._id))}
                     variant="link"
-                    className="text-primary-red flex items-center gap-2"
+                    className="text-orange-600 flex items-center gap-2"
                   >
                     <RiDeleteBin2Fill className="w-5 h-5 mr-1" /> Remove
                   </Button>
@@ -115,7 +115,7 @@ const CartPage = () => {
             </div>
             {cartData?.items.length > 0 && (
               <Button
-                className="w-full text-white bg-primary-red"
+                className="w-full text-white bg-orange-600"
                 onClick={() => navigate("/order")}
               >
                 Checkout
